@@ -1,0 +1,15 @@
+sudo: required
+services:
+  - docker
+
+before_install: 
+  - docker build -t shubhmane/react-test -f ./client/Dockerfile.dev ./client     #--- here we use docker dev file for run the test becuase we cant use prod docker file to run test
+
+script: 
+  - docker run -e CI=true shubhmane/react-test npm run test
+
+after_success:  # build prodcution docker files 
+  - docker build -t shubhmane/multi-client ./client  
+  - docker build -t shubhmane/multi-nginx ./nginx 
+  - docker build -t shubhmane/multi-server ./server 
+  - docker build -t shubhmane/multi-worker ./worker  
