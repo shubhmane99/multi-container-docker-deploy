@@ -16,7 +16,7 @@ after_success:  # build prodcution docker files
 # login to docker cli for login we need username and password of docker cli
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # we will store this in travis environment variable setting
-# take those images and push them to docker hub
+# take those images and push them to docker hub #
   - docker push shubhmane99/multi-client
   - docker push shubhmane99/multi-nginx
   - docker push shubhmane99/multi-server
