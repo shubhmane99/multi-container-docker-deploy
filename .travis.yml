@@ -9,7 +9,7 @@ script:
   - docker run -e CI=true shubhmane99/react-test npm run test
 
 after_success:  # build prodcution docker files 
-  - docker build -t shubhmane/multi-client ./client  
+  - docker build -t shubhmane99/multi-client-react ./client  
   - docker build -t shubhmane99/multi-nginx ./nginx 
   - docker build -t shubhmane99/multi-server ./server 
   - docker build -t shubhmane99/multi-worker ./worker  
@@ -17,7 +17,7 @@ after_success:  # build prodcution docker files
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # we will store this in travis environment variable setting
 # take those images and push them to docker hub #
-  - docker push shubhmane/multi-client
+  - docker push shubhmane99/multi-client-react
   - docker push shubhmane99/multi-nginx
   - docker push shubhmane99/multi-server
   - docker push shubhmane99/multi-worker
