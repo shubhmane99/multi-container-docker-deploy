@@ -25,12 +25,12 @@ after_success:  # build prodcution docker files
 
 deploy:
   provider: elasticbeanstalk
-  region: 'us-west-2'
-  app: 'multi-docker'
-  env: 'MultiDocker-env'
-  bucket_name: 'lasticbeanstalk-us-west-2-058956165569'
-  bucket_path: 'docker-multi'
+  region: "us-west-2"
+  app: "multi-docker"
+  env: "Multidocker-env"
+  bucket_name: "elasticbeanstalk-us-west-2-058956165569" # travis ci send the project code in the zip file to store in s3 bucket
+  bucket_path: "multi-docker"
   on:
     branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
